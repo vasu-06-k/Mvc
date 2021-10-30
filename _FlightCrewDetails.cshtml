@@ -1,0 +1,28 @@
+﻿@using flightmvc.Models
+<table>
+    <tr>
+        <td>
+            Crew Id
+        </td>
+        <td>
+            Crewname
+        </td>
+        <td>
+            CrewDetails
+        </td>
+    </tr>
+    @foreach (var item in ViewBag.crew)
+    {
+        <tr>
+            <td>
+               @item.crewid
+            </td>
+            <td>
+                @item.crewname
+            </td>
+            <td>
+                @item.crewdesig
+            </td>
+        </tr>
+        }
+</table>

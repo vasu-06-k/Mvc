@@ -1,0 +1,72 @@
+﻿@model flightmvc.Models.flightmodel
+    @using flightmvc.Models
+
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>details</h2>
+
+<div>
+    <h4>flightmodel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.flightid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flightname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flightarrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightarrival)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flightdeparture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightdeparture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passengercnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passengercnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.captainid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.captainid)
+        </dd>
+
+    </dl>
+</div>
+<label>crewmember for the flight</label>
+<div style="background-color:aquamarine">
+    @Html.Partial("_FlightCrewDetails",(IEnumerable<crewmodel>)ViewBag.crew)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.flightid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
