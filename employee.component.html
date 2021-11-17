@@ -1,27 +1,28 @@
 
 <h1>Employee List</h1>
-<table class="table table-hover">
-    <thead><tr>
+<table  class="table table-bordered">
+    <tr>
 
-        <td>EmployeeID</td>
-        <td>EmployeeName</td>
-        <td>Date of Birth</td>
-        <td>Gender</td>
-        <td>Employeestatus</td>
-        <td>Designation</td>
-        <td>DepartmentNo</td>
-        <td>Address</td>
-        <td>Nationality</td>
-        <td>Phone No</td>
-        <td>WorkLocation</td>
-        <td>Joining Date</td>
-        <td>Manager ID</td>
+        <th class="table-primary" scope="col">EmployeeID</th>
+        <th  class="table-primary"scope="col">EmployeeName</th>
+        <th  class="table-primary"scope="col">Date of Birth</th>
+        <th class="table-primary"scope="col">Gender</th>
+        <th class="table-primary"scope="col">Employeestatus</th>
+        <th class="table-primary" scope="col">Designation</th>
+        <th class="table-primary" scope="col">DepartmentNo</th>
+        <th class="table-primary" scope="col">Address</th>
+        <th class="table-primary"scope="col">Nationality</th>
+        <th class="table-primary"scope="col">Phone No</th>
+        <th class="table-primary" scope="col">WorkLocation</th>
+        <th class="table-primary" scope="col">Joining Date</th>
+        <th class="table-primary"scope="col">Manager ID</th>
+        
 
     </tr>
-</thead>
+
     <tbody>
-        <tr *ngFor="let sd of emplist">
-            <td>{{sd.EmployeeID}}</td>
+        <tr class="table-secondary" *ngFor="let sd of emplist">
+            <td >{{sd.EmployeeID}}</td>
             <td>{{sd.EmployeeName}}</td>
             <td>{{sd.DateOfBirth}}</td>
             <td>{{sd.Gender}}</td>
@@ -34,8 +35,11 @@
             <td>{{sd.WorkLoc}}</td>
             <td>{{sd.Joiningdate}}</td>
             <td>{{sd.ManagerId}}</td>
+            <td >
+                <button (click)="updateemp()"> update Employee</button>
+            </td>
             
         </tr>
     </tbody>
 </table>
-<button (click)="showevents()">Show Employee Details</button>
+<button (click)="addemp()">Add employee</button>
