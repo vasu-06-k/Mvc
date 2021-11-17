@@ -93,7 +93,7 @@ namespace HRDAL
             for(int i=0;i<p;i++)
             {
                 Employeedetails e = new Employeedetails();
-                e.empid =Convert.ToInt32( t.Rows[i][0]);
+                e.EmployeeID =Convert.ToInt32( t.Rows[i][0]);
                 e.EmployeeName = Convert.ToString(t.Rows[i][1]);
 ;                e.DateOfBirth = Convert.ToDateTime(t.Rows[i][2]);
                 e.Gender = Convert.ToString(t.Rows[i][3]);
