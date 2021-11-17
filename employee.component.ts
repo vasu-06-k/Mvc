@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { empdetails } from 'src/Logginm/employee';
-import { EmployeeService } from '../employee.service';
+import { AddemployeeComponent } from '../addemployee/addemployee.component';
+
+import { RoutingService } from '../routing.service';
 empdetails
-EmployeeService
+RoutingService
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -11,16 +14,23 @@ EmployeeService
 export class EmployeeComponent implements OnInit {
 
 emplist:Array<empdetails>=[];
-  constructor(private p:EmployeeService) { }
+  constructor(private p:RoutingService,private r:Router) { }
 
   ngOnInit(): void {
-    
-  }
-  showevents(){
     this.p.getEvents().subscribe(data => {
-       this.emplist = data;
-       // console.log(this.supplierdata);
-     });
-   }
+      this.emplist = data;
+  });
+  
+    
+}
+addemp(){
+  this.r.navigate(['/addemployee'])
+}
+updateemp(){
+  this.r.navigate(['/updateemployee'])
+}
 
 }
+
+
+
