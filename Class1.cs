@@ -11,7 +11,7 @@ namespace HRDAL
 {
     public class LoginDAL
     {
-       
+        List<Employeedetails> emp = new List<Employeedetails>();
         public int ValidateUser(HRBAL.login P)
         {
             SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
@@ -79,6 +79,38 @@ namespace HRDAL
 
 
 
+        }
+        public List<Employeedetails> showall()
+        {
+            string s = "select * from EmployeeDetails";
+            SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
+            SqlDataAdapter da = new SqlDataAdapter(s, cn);
+            da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable t = ds.Tables[0];
+            int p = t.Rows.Count;
+            for(int i=0;i<p;i++)
+            {
+                Employeedetails e = new Employeedetails();
+                e.empid =Convert.ToInt32( t.Rows[i][0]);
+                e.EmployeeName = Convert.ToString(t.Rows[i][1]);
+;                e.DateOfBirth = Convert.ToDateTime(t.Rows[i][2]);
+                e.Gender = Convert.ToString(t.Rows[i][3]);
+                e.EmpStatus = Convert.ToString(t.Rows[i][4]);
+
+                e.Designation = Convert.ToString(t.Rows[i][5]);
+                e.DeptNo = Convert.ToInt32(t.Rows[i][6]);
+                e.Address = Convert.ToString(t.Rows[i][7]);
+                e.Nationality = Convert.ToString(t.Rows[i][8]);
+                e.PhoneNo = Convert.ToInt64(t.Rows[i][9]);
+                e.ManagerId = Convert.ToInt32(t.Rows[i][10]);
+                e.WorkLoc = Convert.ToString(t.Rows[i][11]);
+                e.Joiningdate = Convert.ToDateTime(t.Rows[i][12]);
+                emp.Add(e);
+
+            }
+            return emp;
         }
 
 
