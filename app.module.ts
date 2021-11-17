@@ -10,8 +10,11 @@ import { LoginmComponent } from './loginm/loginm.component';
 
 import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeService } from './employee.service';
-EmployeeService
+import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
+import { DeleteemployeeComponent } from './deleteemployee/deleteemployee.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -20,7 +23,11 @@ EmployeeService
   declarations: [
     AppComponent,
     LoginmComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    AddemployeeComponent,
+    UpdateemployeeComponent,
+    DeleteemployeeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,7 @@ EmployeeService
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [EmployeeService],
-  bootstrap: [EmployeeComponent]
+  providers: [RoutingService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
