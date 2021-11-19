@@ -36,7 +36,7 @@ namespace Login.Controllers
         }
 
         [HttpPost]
-        [Route("insert")]
+        [Route("insert")] //insertemployee
         public IHttpActionResult insert([FromBody] Employeedetails L)
         {
             LoginDAL dal = new LoginDAL();
@@ -47,21 +47,34 @@ namespace Login.Controllers
             return Ok(new { status = 200, isSuccess = true, message = "Employee added successfully" });
 
         }
-        [HttpPost]
-        [Route("update")]
+        [HttpPut]
+        [Route("update")] //updateemployee
 
-        public IHttpActionResult updates(int i, [FromBody] Employeedetails L)
+        public IHttpActionResult updates( [FromBody] Employeedetails L)
         {
             LoginDAL dal = new LoginDAL();
-            dal.update(i, L);
+            dal.update( L);
 
 
 
             return Ok(new { status = 200, isSuccess = true, message = "Employee updated successfully" });
 
         }
+        [HttpGet] //display particular employee
+      
+        public Employeedetails displayupdate(int empid)
+        {
+            LoginDAL dal = new LoginDAL();
+            Employeedetails e1 = dal.displayupdate(empid);
+            return e1;
+
+
+
+        
+        }
 
         [HttpGet]
+        [Route("showall")]//showallemployee
         public List<Employeedetails> showall()
         {
             LoginDAL d = new LoginDAL();
@@ -70,6 +83,16 @@ namespace Login.Controllers
 
 
         }
+        //[HttpGet]
+        //[Route]
+        //public List<Employeedetails> showupdate()
+        //{
+        //    LoginDAL d = new LoginDAL();
+        //    List<Employeedetails> f = d.showall();
+        //    return f;
+
+
+        //}
 
     }
 }

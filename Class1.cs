@@ -12,7 +12,7 @@ namespace HRDAL
     public class LoginDAL
     {
         List<Employeedetails> emp = new List<Employeedetails>();
-        //List<Employeedetails> emp1 = new List<Employeedetails>();
+        List<Employeedetails> emp1 = new List<Employeedetails>();
         public int ValidateUser(HRBAL.login P)
         {
             SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
@@ -81,39 +81,38 @@ namespace HRDAL
 
 
         }
-        //public List<Employeedetails> displayupdate(Employeedetails e)
-        //{
-        //    SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
+        public Employeedetails displayupdate(int id)
+        {
+            SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
 
-        //    SqlDataAdapter d = new SqlDataAdapter("select * from EmployeeDetails", cn);
-        //    d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    DataSet t = new DataSet();
-        //    d.Fill(t);
-        //    //d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    DataRow r = t.Tables[0].Rows.Find(e.EmployeeID);
+            SqlDataAdapter d = new SqlDataAdapter("select * from EmployeeDetails", cn);
+            d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            DataSet t = new DataSet();
+            d.Fill(t);
+            //d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            DataRow r = t.Tables[0].Rows.Find(id);
 
-        //    for(int i=0;i<r.Table.Columns.Count;i++)
-        //    {
-        //        Employeedetails e2 = new Employeedetails();
-        //        e2.EmployeeID = Convert.ToInt32(r.Table.Columns[0]);
-        //        e2.EmployeeName = Convert.ToString(r.Table.Columns[1]);
-        //        e2.DateOfBirth = Convert.ToDateTime(r.Table.Columns[2]);
-        //        e2.Gender = Convert.ToString(r.Table.Columns[3]);
-        //        e2.EmpStatus = Convert.ToString(r.Table.Columns[4]);
+            
+                Employeedetails e2 = new Employeedetails();
+                e2.EmployeeID = Convert.ToInt32(r["EmployeeId"]);
+                e2.EmployeeName = Convert.ToString(r["EmployeeName"]);
+                e2.DateOfBirth = Convert.ToDateTime(r["DateOfBirth"]);
+                e2.Gender = Convert.ToString(r["Gender"]);
+                e2.EmpStatus = Convert.ToString(r["EmpStatus"]);
 
-        //        e2.Designation = Convert.ToString(r.Table.Columns[5]);
-        //        e2.DeptNo = Convert.ToInt32(r.Table.Columns[6]);
-        //        e2.Address = Convert.ToString(r.Table.Columns[7]);
-        //        e2.Nationality = Convert.ToString(r.Table.Columns[8]);
-        //        e2.PhoneNo = Convert.ToInt64(r.Table.Columns[9]);
-        //        e2.ManagerId = Convert.ToInt32(r.Table.Columns[10]);
-            //    e2.WorkLoc = Convert.ToString(r.Table.Columns[11]);
-            //    e2.Joiningdate = Convert.ToDateTime(r.Table.Columns[12]);
-            //    emp1.Add(e2);
+                e2.Designation = Convert.ToString(r["Designation"]);
+                e2.DeptNo = Convert.ToInt32(r["DeptNo"]);
+                e2.Address = Convert.ToString(r["Address"]);
+                e2.Nationality = Convert.ToString(r["Nationality"]);
+                e2.PhoneNo = Convert.ToInt64(r["PhoneNo"]);
+                e2.ManagerId = Convert.ToInt32(r["ManagerId"]);
+                e2.WorkLoc = Convert.ToString(r["WorkLocation"]);
+                e2.Joiningdate = Convert.ToDateTime(r["JoiningDate"]);
+              
 
-            //}
-            //return emp1;
-
+            
+            return e2;
+        }
         
         public List<Employeedetails> showall()
         {
