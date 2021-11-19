@@ -33,7 +33,7 @@ public getapi='https://localhost:44381/api/';
      return this.mystatus
 }
 getEvents():Observable<Array<empdetails>>{
-  let endpoints="Logind/showall"
+  let endpoints="VTRouting/showall"
   return this.http.get<Array<empdetails>>(this.getapi+endpoints);
 }
 addemployeedetails(val:any)
@@ -42,11 +42,19 @@ addemployeedetails(val:any)
     this.http.post(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
     return this.mystatus
 }
-updateemployeedetails(val:any)
-{
-  let endpoints="VTRouting/update";
-   this.http.put(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
-  return this.mystatus
+updateemployeedetails(empid:number):Observable<empdetails>{
+ let myapi:string="https://localhost:44381/api/Logind/displayupdate?empid=";
+  //let endpoints="Logind/displayupdate?empid=";
+   return this.http.get<empdetails>(myapi+empid);
+
+  
+   
+}
+updateemptodb(val:any)
+{let endpoints="VTRouting/update";
+this.http.put(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
+return this.mystatus
+
 }
 Findemployee(val:any)
 {
