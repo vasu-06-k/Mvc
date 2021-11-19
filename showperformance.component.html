@@ -1,0 +1,27 @@
+<h1>Performance List</h1>
+<table  class="table table-bordered">
+    <tr>
+
+        <th class="table-primary" scope="col">EmployeeID</th>
+        <th  class="table-primary"scope="col">Division</th>
+        <th  class="table-primary"scope="col">workgroup</th>
+        <th class="table-primary"scope="col">Evaluationdate</th>
+        <th class="table-primary"scope="col">EvaluationID</th>
+        <th class="table-primary"scope="col">EvaluationPeriod</th>
+    </tr>
+
+    <tbody>
+        <tr class="table-secondary" *ngFor="let sd of perflist">
+            <td >{{sd.Empid}}</td>
+            <td>{{sd.Division}}</td>
+            <td>{{sd.workgroup}}</td>
+            <td>{{sd.Evaluationdate}}</td>
+            <td>{{sd.EvaluatorId}}</td>
+            <td>{{sd.Evaluationperiod}}</td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+<button (click)="insertperformance()">Add employee</button>
+<!-- <button (click)="addper()">Add performance</button> -->

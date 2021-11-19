@@ -1,0 +1,23 @@
+<form #loginfrm="ngForm" class="form-group" (ngSubmit)=" addperformance(loginfrm.value)" >
+    <fieldset>
+        <label>Enter Emploee id</label>
+       <input type="number" [(ngModel)]=" addper.Empid" id="" name="Empid"/>
+       <br/>
+       <label>Enter Divison</label>
+       <input type="text" [(ngModel)]="addper.Division" id="" name="Division"/>
+       <br/>
+       <label>Enter Workgroup</label>
+       <input type="text" [(ngModel)]="addper.workgroup" id="" name="workgroup"/>
+       <br/>
+       <label>Enter Evaluation Date</label>
+       <input type="date" [(ngModel)]="addper.Evaluationdate" id="" name="Evaluationdate"/>
+       <br/>
+       <label>Enter Evaluation Id</label>
+       <input type="number" [(ngModel)]="addper.EvaluatorId" id="" name="Evaluatorid"/>
+       <br/>
+       <label>Enter Evaluation Period</label>
+       <input type="number" [(ngModel)]="addper.Evaluationperiod" id="" name="Evaluationperiod"/>
+       <br/>
+       <input type="submit" class="btn btn-primary" name="vu"/>
+    </fieldset>
+</form>

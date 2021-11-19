@@ -1,0 +1,32 @@
+<h1>Training  List</h1>
+<table  class="table table-bordered">
+    <tr>
+
+        <th class="table-primary" scope="col">EmployeeID</th>
+        <th  class="table-primary"scope="col">Batchno</th>
+        <th  class="table-primary"scope="col">Batchname</th>
+        <th class="table-primary"scope="col">courses</th>
+        <th class="table-primary"scope="col">TraineeID</th>
+        <th class="table-primary"scope="col">ManagerID</th>
+        <th class="table-primary"scope="col">StartDate</th>
+        <th class="table-primary"scope="col">Enddate</th>
+        <th class="table-primary"scope="col">Status</th>
+    </tr>
+
+    <tbody>
+        <tr class="table-secondary" *ngFor="let sd of trainlist">
+            <td >{{sd.Empid}}</td>
+            <td>{{sd.Batchno}}</td>
+            <td>{{sd.Batchname}}</td>
+            <td>{{sd.courses}}</td>
+            <td>{{sd.TraineerId}}</td>
+            <td>{{sd.MangerId}}</td>
+            <td>{{sd.startdate}}</td>
+            <td>{{sd.enddate}}</td>
+            <td>{{sd.Status}}</td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+<button (click)="inserttraining()">Add employee</button>

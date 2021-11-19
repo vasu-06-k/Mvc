@@ -1,0 +1,35 @@
+<form #loginfrm="ngForm" class="form-group" (ngSubmit)=" addTrainee(loginfrm.value)" >
+    <fieldset>
+        <label>Enter Emploee id</label>
+       <input type="number" [(ngModel)]=" addtraining.Empid" id="" name="Empid"/>
+       <br/>
+       <label>Enter Batchno</label>
+       <input type="number" [(ngModel)]="addtraining.Batchno" id="" name="Batchno"/>
+       <br/>
+       <label>Enter Batchname</label>
+       <input type="text" [(ngModel)]="addtraining.Batchname" id="" name="Batchname"/>
+       <br/>
+       <label>Enter Courses</label>
+       <input type="text" [(ngModel)]="addtraining.courses" id="" name="courses"/>
+       <br/>
+       <label>Enter Traineer ID</label>
+       <input type="number" [(ngModel)]="addtraining.TraineerId" id="" name="TraineerId"/>
+       <br/>
+       <label>Enter  Manager Id</label>
+       <input type="number" [(ngModel)]="addtraining.MangerId" id="" name="MangerId"/>
+       <br/>
+       <label>Enter startdate</label>
+       <input type="Date" [(ngModel)]="addtraining.startdate" id="" name="startdate"/>
+       <br/>
+       <label>Enter enddate</label>
+       <input type="Date" [(ngModel)]="addtraining.enddate" id="" name="enddate"/>
+       <br/>
+       <label>Enter Status</label>
+       <input type="text" [(ngModel)]="addtraining.Status" id="" name="Status"/>
+       <br/>
+       
+       
+
+       <input type="submit" class="btn btn-primary" name="vu"/>
+    </fieldset>
+</form>

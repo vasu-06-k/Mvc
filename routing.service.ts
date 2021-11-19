@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { empdetails } from 'src/Logginm/employee';
+import { perfom } from 'src/Logginm/perfomance';
+import { training } from 'src/Logginm/training';
 
 
 @Injectable({
@@ -42,8 +44,8 @@ addemployeedetails(val:any)
 }
 updateemployeedetails(val:any)
 {
-  let endpoints="VTRouting/";
-   this.http.post(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
+  let endpoints="VTRouting/update";
+   this.http.put(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
   return this.mystatus
 }
 Findemployee(val:any)
@@ -52,5 +54,26 @@ Findemployee(val:any)
   return this.http.put(this.getapi+endpoints,val)
 
 }
-
+addperformance(val:any)
+{
+  //let endpoints="Perfomance/Postperformance";
+    this.http.post("https://localhost:44381/api/Perfomance/Postperfomance",val).subscribe((data:any)=>{this.mystatus=data.status})
+    return this.mystatus
+}
+showperformance():Observable<Array<perfom>>{
+  let endpoints="https://localhost:44381/api/Perfomance/showallperfomance";
+  console.log("hello");
+  return this.http.get<Array<perfom>>(endpoints);
+}
+showtraining():Observable<Array<training>>{
+  let endpoints="https://localhost:44381/api/Training/showall";
+  console.log("hello");
+  return this.http.get<Array<training>>(endpoints);
+}
+addTrainee(val:any)
+{
+  //let endpoints="Perfomance/Postperformance";
+    this.http.post("https://localhost:44381/api/Training/addtraining",val).subscribe((data:any)=>{this.mystatus=data.status})
+    return this.mystatus
+}
 }

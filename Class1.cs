@@ -12,6 +12,7 @@ namespace HRDAL
     public class LoginDAL
     {
         List<Employeedetails> emp = new List<Employeedetails>();
+        //List<Employeedetails> emp1 = new List<Employeedetails>();
         public int ValidateUser(HRBAL.login P)
         {
             SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
@@ -50,7 +51,7 @@ namespace HRDAL
             SqlCommandBuilder b = new SqlCommandBuilder(d);
             d.Update(t);
         }
-        public void update (int i,Employeedetails e)
+        public void update (Employeedetails e)
         {
             SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
 
@@ -59,27 +60,61 @@ namespace HRDAL
             DataSet t = new DataSet();
             d.Fill(t);
             //d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            DataRow r=t.Tables[0].Rows.Find(i);
-            r[1] = e.EmployeeName;
-            r[2] = e.DateOfBirth;
-            r[3] = e.Gender;
+            DataRow r=t.Tables[0].Rows.Find(e.EmployeeID);
+            //r[1] = e.EmployeeName;
+            //r[2] = e.DateOfBirth;
+            //r[3] = e.Gender;
             r[4] = e.EmpStatus;
 
             r[5] = e.Designation;
             r[6] = e.DeptNo;
             r[7] = e.Address;
-            r[8] = e.Nationality;
+            //r[8] = e.Nationality;
             r[9] = e.PhoneNo;
             r[10] = e.ManagerId;
             r[11] = e.WorkLoc;
-            r[12] = e.Joiningdate;
-            // t.Tables[0].Rows.Add(r);
+            //r[12] = e.Joiningdate;
+            
             SqlCommandBuilder b = new SqlCommandBuilder(d);
             d.Update(t);
 
 
 
         }
+        //public List<Employeedetails> displayupdate(Employeedetails e)
+        //{
+        //    SqlConnection cn = new SqlConnection("Data Source=LAPTOP-IU1NK3H4\\SQLEXPRESS;Initial Catalog=HRdb;Integrated Security=True");
+
+        //    SqlDataAdapter d = new SqlDataAdapter("select * from EmployeeDetails", cn);
+        //    d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    DataSet t = new DataSet();
+        //    d.Fill(t);
+        //    //d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    DataRow r = t.Tables[0].Rows.Find(e.EmployeeID);
+
+        //    for(int i=0;i<r.Table.Columns.Count;i++)
+        //    {
+        //        Employeedetails e2 = new Employeedetails();
+        //        e2.EmployeeID = Convert.ToInt32(r.Table.Columns[0]);
+        //        e2.EmployeeName = Convert.ToString(r.Table.Columns[1]);
+        //        e2.DateOfBirth = Convert.ToDateTime(r.Table.Columns[2]);
+        //        e2.Gender = Convert.ToString(r.Table.Columns[3]);
+        //        e2.EmpStatus = Convert.ToString(r.Table.Columns[4]);
+
+        //        e2.Designation = Convert.ToString(r.Table.Columns[5]);
+        //        e2.DeptNo = Convert.ToInt32(r.Table.Columns[6]);
+        //        e2.Address = Convert.ToString(r.Table.Columns[7]);
+        //        e2.Nationality = Convert.ToString(r.Table.Columns[8]);
+        //        e2.PhoneNo = Convert.ToInt64(r.Table.Columns[9]);
+        //        e2.ManagerId = Convert.ToInt32(r.Table.Columns[10]);
+            //    e2.WorkLoc = Convert.ToString(r.Table.Columns[11]);
+            //    e2.Joiningdate = Convert.ToDateTime(r.Table.Columns[12]);
+            //    emp1.Add(e2);
+
+            //}
+            //return emp1;
+
+        
         public List<Employeedetails> showall()
         {
             string s = "select * from EmployeeDetails";
