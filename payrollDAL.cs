@@ -24,9 +24,9 @@ namespace HRDAL
 
 
             Payroll e2 = new Payroll();
-            //e2.Empid = Convert.ToInt32(r["EmpId"]);
+            e2.Empid = Convert.ToInt32(r["EmpId"]);
             e2.BankaccountNo = Convert.ToInt32(r["BankAccountNo"]);
-            //e2.Pfno = Convert.ToInt32(r["ProvidentFundNo"]);
+            e2.Pfno = Convert.ToInt32(r["ProvidentFundNo"]);
             e2.Basicpay = Convert.ToInt32(r["BasicPay"]);
             e2.HRA = Convert.ToInt32(r["HRA"]);
             e2.Medicalallowance = Convert.ToInt32(r["MedicalAllowance"]);
@@ -48,7 +48,7 @@ namespace HRDAL
             //d.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             DataRow r = t.Tables[0].Rows.Find(e.Empid);
             r[1] = e.BankaccountNo;
-            r[2] = e.Pfno;
+          
             
 
             SqlCommandBuilder b = new SqlCommandBuilder(d);
