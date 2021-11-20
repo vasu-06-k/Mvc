@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { empdetails } from 'src/Logginm/employee';
 import { perfom } from 'src/Logginm/perfomance';
 import { training } from 'src/Logginm/training';
+import { payroll } from 'src/Logginm/Payroll';
 
 
 @Injectable({
@@ -50,8 +51,23 @@ updateemployeedetails(empid:number):Observable<empdetails>{
   
    
 }
+getpayrollid(id:number):Observable<payroll>{
+  let myapi:string="https://localhost:44381/api/Payroll/displayupdates?id=";
+   //let endpoints="Logind/displayupdate?empid=";
+    return this.http.get<payroll>(myapi+id);
+ 
+   
+    
+ }
+ //updatepayrolltodb
 updateemptodb(val:any)
 {let endpoints="VTRouting/update";
+this.http.put(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
+return this.mystatus
+
+}
+updatepayrolltodb(val:any)
+{let endpoints="Payroll/updates";
 this.http.put(this.getapi+endpoints,val).subscribe((data:any)=>{this.mystatus=data.status})
 return this.mystatus
 

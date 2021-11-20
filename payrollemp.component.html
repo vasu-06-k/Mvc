@@ -1,0 +1,37 @@
+<form  #loginfrm="ngForm" class="form-group" (ngSubmit)="updatepayroll(loginfrm.value)"  >
+    <fieldset>
+        <label>Enter Employee Id</label>
+       <input type="number" [(ngModel)]="pay.Empid" id="" name="Empid"/>
+       <br/>
+       <label>Enter BankAccount No</label>
+       <input type="number" [(ngModel)]="pay.BankaccountNo" id="" name="BankaccountNo"/>
+       <br/>
+       <label>  Basic Pay</label>
+       <input type="number"  Disabled [(ngModel)]="pay.Basicpay" id="" name="Basicpay"/>
+       <br/>
+       <label>HRA</label>
+       <input type="number" Disabled [(ngModel)]="pay.HRA" id="" name="HRA"/>
+       <br/>
+       <label>Medicalallowance</label>
+       <input type="number"  Disabled [(ngModel)]="pay.Medicalallowance" id="" name="Medicalallowance"/>
+       <br/>
+       <label>Tax</label>
+       <input type="number"  Disabled [(ngModel)]="pay.Tax" id="" name="Tax"/>
+       <br/>
+       <label>Bonus</label>
+       <input type="number" Disabled [(ngModel)]="pay.Bonus" id="" name="Bonus"/>
+       <br/>
+       <label>NO of Workdays</label>
+       <input type="number" Disabled  [(ngModel)]="pay.Noofworkdays" id="" name="EmployeeID"/>
+       <br/>
+       <label>Grosspay</label>
+       <input type="number"  Disabled [(ngModel)]="pay.Grosspay" id="" name="Grosspay"/>
+       <br/>
+       <label>Provident Fund No</label>
+       <input type="number" Disabled [(ngModel)]="pay.Pfno" id="" name="Pfno"/>
+       <br/>
+       <button (click)="passid(pay.Empid)"class="btn btn-primary" name="vut">Get Payroll Details </button>
+
+       <input type="submit" class="btn btn-primary" name="vu"/>
+    </fieldset>
+    </form>

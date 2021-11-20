@@ -38,13 +38,13 @@ export class UpdateemployeeComponent implements OnInit {
     this.p.updateemployeedetails(id).subscribe((data:any) => {
       this.adde= data;
       console.log(this.adde);
-      
+      this.showall(this.adde);
 
 
     
 
     });
-    this.showall(this.adde);
+    
     
   }
   showall(ar:empdetails)
@@ -53,12 +53,12 @@ export class UpdateemployeeComponent implements OnInit {
       this.adde.EmployeeName=ar.EmployeeName;
       
       
-        this.adde. DateOfBirth=ar.DateOfBirth;
-        this.adde. Gender=ar.Gender;
-        this.adde. EmpStatus=ar.EmpStatus;
-        this.adde. Designation=ar.Designation;
-        this.adde. DeptNo =ar.DeptNo;
-        this.adde. Address=ar.Address;
+        this.adde.DateOfBirth=ar.DateOfBirth;
+        this.adde.Gender=ar.Gender;
+        this.adde.EmpStatus=ar.EmpStatus;
+        this.adde.Designation=ar.Designation;
+        this.adde.DeptNo =ar.DeptNo;
+        this.adde.Address=ar.Address;
          this.adde.Nationality=ar.Nationality;
          this.adde.PhoneNo =ar.PhoneNo;
          this.adde.WorkLoc=ar.WorkLoc;
