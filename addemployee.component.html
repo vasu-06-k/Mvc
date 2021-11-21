@@ -1,86 +1,108 @@
-<form #loginfrm="ngForm"  (ngSubmit)="addemp(loginfrm.value)" >
-    <fieldset>
-        <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
-        <label class="control-label">Enter Name</label>
-       <input type="text" [(ngModel)]="adde.EmployeeName" required id="" name="EmployeeName" #empname="ngModel"/>
-       <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">Name is required</span>
-       </div>
-     
-       <br/>
-       <div class="form-group" [class.has-error]="dob.invalid && dob.touched" [class.has-success]="dob.valid">
-       <label class="control-label">Enter DOB:</label>
-       <input type="datetime-local" [(ngModel)]="adde.DateOfBirth"  required id="" name="DateOfBirth" #dob="ngModel"/>
-       <span class="help-block" *ngIf="dob.invalid && dob.touched"  style="color: red;">DOB is required</span>
-    </div>
-       <br/>
+<div class="d-flex flex-row  mb-3 justify-content-center">
+   <div class="form-froup row" style="width: 60%;">
+       <h2>Add Employee Details</h2>
+<form #loginfrm="ngForm"  class="form-control look" (ngSubmit)="addemp(loginfrm.value)" >
+   <fieldset>
+       <h3>Personal Details</h3>
+       <hr style="width: 60%; color: blue;"/>
+       <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+         <label class="control-label col-sm-3 col-form-label">Enter Name</label>
+        <input type="text" class="form-control" [(ngModel)]="adde.EmployeeName" required style="width:80%" id="" name="EmployeeName" #empname="ngModel"/>
+        <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">Name is required</span>
+        </div>
+        <br/>
+        <div class="form-group" [class.has-error]="dob.invalid && dob.touched" [class.has-success]="dob.valid">
+         <label class="control-label col-sm-3 col-form-label">Enter DOB:</label>
+         <input type="datetime-local" style="width:80%" [(ngModel)]="adde.DateOfBirth"  required id="" name="DateOfBirth" #dob="ngModel"/>
+         <span class="help-block" *ngIf="dob.invalid && dob.touched"  style="color: red;">DOB is required</span>
+      </div>
+      <br/>
        <div class="form-group" [class.has-error]="gen.invalid && gen.touched" [class.has-success]="gen.valid">
-       <label  class="control-label" for="gender">Enter Gender</label>
-       <select name="gender" id="gender" [(ngModel)]="adde.Gender" required #gen="ngModel">
+       <label  class="control-label col-sm-3 col-form-label" for="gender">Enter Gender</label>
+       <select name="gender" id="gender"  class="form-control" style="width:80%" [(ngModel)]="adde.Gender"  required #gen="ngModel">
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
        </select>
        <span class="help-block" *ngIf="gen.invalid && gen.touched"  style="color: red;">  Gender  is required</span>
        </div>
-     
-       <!-- <input type="text" [(ngModel)]="Gender"  id="" name="Gender"/> -->
        <br/>
-       <div class="form-group" [class.has-error]="stat.invalid && stat.touched" [class.has-success]="gen.valid">
-       <label>Enter Employee Status</label>
-       <input type="text" [(ngModel)]="adde.EmpStatus" id=""  required #stat="ngModel" name="EmpStatus"/>
-       <span class="help-block" *ngIf="stat.invalid && stat.touched"  style="color: red;">Employee Status is required</span>
-    </div>
-       <br/>
-       <div class="form-group" [class.has-error]="des.invalid && des.touched" [class.has-success]="des.valid">
-       <label for="designation">Enter Designation</label>
-       <select name="designation" id="designation" [(ngModel)]="adde.Designation" required #des="ngModel">
-        <option value="Analyst">Analyst</option>
-        <option value="WebDeveloper">Web Developer</option>
-        <option value="DataScientist">Data Scientist</option>
-       </select>
-       <span class="help-block" *ngIf="des.invalid && des.touched"  style="color: red;">Designationis required</span>
-    </div>
-       <!-- <input type="text" [(ngModel)]="Designation" id="" name="Designation"/> -->
-       <br/>
-       <div class="form-group" [class.has-error]="np.invalid && np.touched" [class.has-success]="np.valid">
-       <label>Enter Departmant No.</label>
-       <input type="number" [(ngModel)]="adde.DeptNo" id="" name="DeptNo" required #np="ngModel"/>
-       <span class="help-block" *ngIf="np.invalid && np.touched"  style="color: red;">Designationis required</span>
-    </div>
-       <br/>
-       <div class="form-group" [class.has-error]="add.invalid && add.touched" [class.has-success]="add.valid">
-       <label>Enter Address</label>
-       <input type="textbox" [(ngModel)]="adde.Address" id="" name="Address" required #add="ngModel"/>
-       <span class="help-block" *ngIf="add.invalid && add.touched"  style="color: red;">Address required</span>
-    </div>
-       <br/>
-       <div class="form-group" [class.has-error]="nat.invalid && nat.touched" [class.has-success]="nat.valid">
-       <label>Enter Nationality</label>
-       <input type="text" [(ngModel)]="adde.Nationality" id="" name="Nationality" required #nat="ngModel"/>
-       <span class="help-block" *ngIf="nat.invalid && nat.touched"  style="color: red;">Designationis required</span>
-    </div>
-       <br/>
-       <div class="form-group"  >
-       <label for="ph">Enter Phone No.</label>
-       <input type="number" [(ngModel)]="adde.PhoneNo" id=""    name="PhoneNo" >
-       <!-- <span class="help-block" *ngIf="[ph.errors?[required] && ph.touched]" style="color: red;">phone no is required</span>
-       <span class="help-block" *ngIf="ph.errors?.pattern && ph.touched"  style="color: red;">Enter Valid phone no </span> -->
-    </div>
-       <br/>
-       <label>Enter Work Location</label>
-       <input type="text" [(ngModel)]="adde.WorkLoc" id="" name="WorkLoc"/>
-       <br/>
-       <label>Enter Joining Date</label>
-        <input type="datetime-local" [(ngModel)]="adde.Joiningdate" id="" name="Joiningdate"/>
-       <br/>
-   
-       <label>Enter Manager ID</label>
-       <input type="number" [(ngModel)]="adde.ManagerId" id="" name="ManagerId"/>
+      <h3>Contact Details</h3>
+      <div class="form-group" [class.has-error]="phno.invalid && phno.touched" [class.has-success]="phno.valid">
+         <label class="control-label col-sm-3 col-form-label">Enter Phone No.</label>
+         <input type="number" class="form-control"style="width:80%"  [(ngModel)]="adde.PhoneNo" id="" required #phno="ngModel"  name="PhoneNo"/>
+         <span class="help-block" *ngIf="phno.invalid && phno.touched"  style="color: red;">Phone No is required</span>
+      </div>
+   <br/>
+         
+      <input style="width:60%" type="number"style="width:80%" class="form-control"[(ngModel)]="adde.PhoneNo" id="" name="PhoneNo"/> -->
+      <div class="form-group" [class.has-error]="add.invalid && add.touched" [class.has-success]="add.valid">
+         <label class="control-label col-sm-3 col-form-label">Enter Address</label>
+         <input type="textbox" class="form-control"style="width:80%" [(ngModel)]="adde.Address" id="" name="Address" required #add="ngModel"/>
+         <span class="help-block" *ngIf="add.invalid && add.touched"  style="color: red;">Address required</span>
+      </div>
+   <br/>
+      
+      <div class="form-group" [class.has-error]="nat.invalid && nat.touched" [class.has-success]="nat.valid">
+         <label class="col-sm-4 col-form-label control-label" >Enter Nationality</label>
+         <input type="text"  class="form-control"style="width:80%" [(ngModel)]="adde.Nationality" id="" name="Nationality" required #nat="ngModel"/>
+         <span class="help-block" *ngIf="nat.invalid && nat.touched"  style="color: red;">Designationis required</span>
+      </div>
+   <br/>
+   <div class="form-group" [class.has-error]="nat.invalid && nat.touched" [class.has-success]="nat.valid">
+      <label class=" control-label col-sm-4 col-form-label control-label">Enter Nationality</label>
+      <input type="text"  class="form-control"style="width:80%"[(ngModel)]="adde.Nationality" id="" name="Nationality" required #nat="ngModel"/>
+      <span class="help-block" *ngIf="nat.invalid && nat.touched"  style="color: red;">Designationis required</span>
+   </div>
+      
+      <br/>
+      <h3>Employee Status</h3>
+      <div class="form-group" [class.has-error]="wor.invalid && wor.touched" [class.has-success]="wor.valid">
+      <label  class="col-sm-4 col-form-label control-label">Enter Work Location</label>
+      <input type="text" class="form-control"style="width:80%"[(ngModel)]="adde.WorkLocation" id="" name="WorkLocation" required #wor="ngModel"/>
+      <span class="help-block" *ngIf="wor.invalid && wor.touched"  style="color: red;">Work Location is required</span>
+   </div>
+<br/>
 
+      <label  class="col-sm-4 col-form-label">Enter Joining Date</label>
+       <input type="datetime-local"class="form-control"style="width:80%" [(ngModel)]="adde.JoiningDate" id="" name="JoiningDate"/>
+<br/>
+<div class="form-group" [class.has-error]="mg.invalid && mg.touched" [class.has-success]="mg.valid">
+      <label  class="control-label col-sm-4 col-form-label">Enter Manager ID</label>
+      <input type="number" class="form-control"style="width:80%"[(ngModel)]="adde.ManagerId" id="" required #mg="ngModel" name="ManagerId"/>
+      <span class="help-block" *ngIf="mg.invalid && mg.touched"  style="color: red;">ManagerId is required</span>
+   </div>
+<br/>
+<div class="form-group" [class.has-error]="dep.invalid && dep.touched" [class.has-success]="dep.valid">
+      <label class=" control-label col-sm-4 col-form-label">Enter Departmant No.</label>
+      <input type="number"class="form-control"style="width:80%" [(ngModel)]="adde.DeptNo" required id="" name="DeptNo" #dep="ngModel"/>
+      <span class="help-block" *ngIf="dep.invalid && dep.touched"  style="color: red;">Departmant No required</span>
+   </div>
+<br/>
+<div class="form-group" [class.has-error]="des.invalid && des.touched" [class.has-success]="des.valid">
+   <label  class="control-label col-sm-4 col-form-label">Enter Designation</label>
+   <select name="designation" id="designation"  style="width:80%" class="form-control" [(ngModel)]="adde.Designation" required #des="ngModel">
+    <option value="Analyst">Analyst</option>
+    <option value="WebDeveloper">Web Developer</option>
+    <option value="DataScientist">Data Scientist</option>
+   </select>
+   <span class="help-block" *ngIf="des.invalid && des.touched"  style="color: red;">Designationis required</span>
+</div>
+<br/>
       
-       <input type="submit" class="btn btn-primary" name="vu" [disabled]="!loginfrm.valid"/>
-      
-    </fieldset>
+      <div class="form-group col-sm-4 col-form-label" [class.has-error]="stat.invalid && stat.touched" [class.has-success]="gen.valid">
+         <label>Enter Employee Status</label>
+         <input type="text" class="form-control"style="width:80%" [(ngModel)]="adde.EmpStatus" id=""  required #stat="ngModel" name="EmpStatus"/> -->
+          <span class="help-block" *ngIf="stat.invalid && stat.touched"  style="color: red;">Employee Status is required</span>
+      </div>
+   <br/>
+
+     
+      <input type="submit" class="btn btn-primary" name="vu" [disabled]="loginfrm.invalid"/>
+   </fieldset>
 </form>
+</div>
+</div>
+
 
 
