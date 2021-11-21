@@ -46,7 +46,7 @@
       <div class="form-group" [class.has-error]="nat.invalid && nat.touched" [class.has-success]="nat.valid">
          <label class="col-sm-4 col-form-label control-label" >Enter Nationality</label>
          <input type="text"  class="form-control"style="width:80%" [(ngModel)]="adde.Nationality" id="" name="Nationality" required #nat="ngModel"/>
-         <span class="help-block" *ngIf="nat.invalid && nat.touched"  style="color: red;">Designationis required</span>
+         <span class="help-block" *ngIf="nat.invalid && nat.touched"  style="color: red;">Nationality is required</span>
       </div>
    <br/>
    <div class="form-group" [class.has-error]="nat.invalid && nat.touched" [class.has-success]="nat.valid">
